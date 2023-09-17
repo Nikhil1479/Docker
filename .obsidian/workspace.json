@@ -1,0 +1,176 @@
+{
+  "main": {
+    "id": "5462dae642b98161",
+    "type": "split",
+    "children": [
+      {
+        "id": "f04c37e01c72f423",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "472024eb929b4f42",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Notes/Hands on Project.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5bd1e62644e00573",
+    "type": "split",
+    "children": [
+      {
+        "id": "be314d2f6af0916c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7343cb5b478ab1a8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "64ae52c60b727321",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#express-app",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7f02b48f2eab66a3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "8760aadc8e00effb",
+    "type": "split",
+    "children": [
+      {
+        "id": "335d0c33e58d528b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9cd95daebf733c3e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Notes/Hands on Project.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "641e9ba6f84ef2e2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Notes/Hands on Project.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "359e1d302e58f0ae",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "920b00a1bee7cfc8",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Notes/Hands on Project.md"
+              }
+            }
+          },
+          {
+            "id": "ebba55b77dc634aa",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "472024eb929b4f42",
+  "lastOpenFiles": [
+    "Notes/Overview.md",
+    "Notes/Hands on Project.md",
+    "2023-09-18.md",
+    "node_modules/express/Readme.md",
+    "Hands on Project.pdf",
+    "2023-W38.md",
+    "2023-09-17.md",
+    "files/message.png.md",
+    "Notes/~$Hands on Project.pptx",
+    "Notes/Hands on Project.pptx",
+    "Notes/Hands on Project.pandoc.md",
+    "Notes/Hands on Project.tex",
+    "files",
+    "node_modules/send/SECURITY.md",
+    "Notes"
+  ]
+}
