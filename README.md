@@ -77,7 +77,7 @@ docker run -p 4000:3000 -d --name node-app node-app-image
 ```sh
 $ docker exec -it node-app bash
 ```
-![[Pasted image 20230919163356.png]]
+![Alt text](images/Pastedimage20230919163356.png)
 - In the above screenshot we can see all the files inside our container.
 - We can see that there are some unnecessary files like `Dockerfile`, `node_module` which aren't necessary.
 - These files are creating inside docker container because of `COPY . ./` command in our `Dockerfile`.
@@ -97,6 +97,6 @@ files
 ```sh
 $ docker built -t node-app-image .
 ```
-![[Pasted image 20230919165842.png]]
+![Alt image](images/Pastedimage20230919165842.png)
 
 In the above screenshot, we can see that now after re building the image, with the help of `.dockerignore` there no unnecessary files in our container.
