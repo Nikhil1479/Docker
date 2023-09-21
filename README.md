@@ -100,3 +100,20 @@ $ docker built -t node-app-image .
 ![Alt image](images/Pastedimage20230919165842.png)
 
 In the above screenshot, we can see that now after re building the image, with the help of `.dockerignore` there no unnecessary files in our container.
+### Docker Volumes 
+- When we edit or update our file in our local machine, the file didn't gets updated inside docker container.
+- To update that file inside our container, we need to build the image again using `docker build` command.
+- To overcome this issue, we use `volumes` in docker, to synchronize our files between local and container.
+```sh
+$ docker run -v pathToFolderOnLocal:pathToFolderOnContainer -p 4000:3000 -d node-app node-app-image
+```
+- `pathToFolderLocal`: need to pass the absolute path i.e `E:\HighRadius Paid\Docker\Dockerfile`
+- `pathToFolderOnContainer`: `/app`
+#### Current Working Directory Variables [Optional]
+1. Windows Command Shell: `%cd%`
+2. Windows PowerShell: `${pwd}`
+3. Mac or Linux Shell: `$(pwd)`
+
+```sh
+docker run -v %cd%:/app -p 4000:3000 -d --name node-app node-app-image 
+```
