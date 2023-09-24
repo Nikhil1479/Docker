@@ -120,3 +120,4 @@ docker run -v %cd%:/app -p 4000:3000 -d --name node-app node-app-image
 ```
 
 ### Anonymous Mount
+Anonymous mount are used to don't sync a specific folder with bind mount.
