@@ -118,6 +118,22 @@ $ docker run -v pathToFolderOnLocal:pathToFolderOnContainer -p 4000:3000 -d node
 ```sh
 docker run -v %cd%:/app -p 4000:3000 -d --name node-app node-app-image 
 ```
-
 ### Anonymous Mount
-Anonymous mount are used to don't sync a specific folder with bind mount.
+Suppose we delete our `node_module` folder from our local machine, and run our container, Inside the container `node_modules` folder will be created due to `npm install` command.
+But due to `bind mount` as the volumes are synced, it will delte the `node_modules` folder inside the container also.
+
+To avoid this problem we will use `Anonymous mount`.
+```sh
+$ docker run -v ${pwd}:/app -v /app/node_modules -p 4000:3000 -d --name node-app node-app-image
+```
+
+`-v /app/node_modules` It will preserve this folder from bind mount. It overrides the bind mount.
+#### Changing the `Docker` file system to read only
+To change the docker file system to read only we use 
+```sh
+:ro (to be ussed with volumes -v)
+```
+
+```sh
+$ docker run -v ${pwd}:/app:ro -v /app/node_modules -p 4000:3000 -d --name node-app node-app-image
+```
