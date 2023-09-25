@@ -137,3 +137,24 @@ To change the docker file system to read only we use
 ```sh
 $ docker run -v ${pwd}:/app:ro -v /app/node_modules -p 4000:3000 -d --name node-app node-app-image
 ```
+#### Deleting Volumes in docker
+
+- Displaying the volumes
+```sh
+$ docker volume ls
+```
+
+- Deleting a volume
+```sh
+$ docker volume <Volume Name>
+```
+
+- Deleting a volume while deleting a container
+```sh
+$ docker rm node-app -fv
+```
+
+- Deleting all volumes
+```sh
+$ docker volume prune
+```
