@@ -1,7 +1,7 @@
 # Dockerizing an Express App 
 We are going to dockerize an `express` application.
 ## Express App
-This code sets up a basic Express server that listens for incoming GET requests on the root path ("/") and responds with a simple "Hi There" message in HTML. The server will listen on either the port specified in the `process.env.PORT` environment variable or port `3000` if the environment variable is not set.
+>This code sets up a basic Express server that listens for incoming GET requests on the root path ("/") and responds with a simple "Hi There" message in HTML. The server will listen on either the port specified in the `process.env.PORT` environment variable or port `3000` if the environment variable is not set.
 
 ```javascript {.line-numbers}
 const express = require("express")
@@ -14,7 +14,7 @@ app.listen(port, () => console.log(`listening on port ${port}`))
 ```
 
 ## Docker Image
-In Docker, everything is based on Images. An image is a combination of a file system and parameters. Let’s take an example of the following command in Docker.
+>In Docker, everything is based on Images. An image is a combination of a file system and parameters. Let’s take an example of the following command in Docker.
 ### Creating a Docker image
 - Docker images are built using `Dockerfile`   
 - Docker images are built using layers 
@@ -43,7 +43,7 @@ CMD ["node", "index.js"]
 So, basically the above code are the instructions or steps which should be executed sequentially while building an container from an image.
 
 #### Docker Build
-To build an image from this `Dockerfile` you need to execute this command `docker build` command.
+>To build an image from this `Dockerfile` you need to execute this command `docker build` command.
 `docker build` command builds Docker images from a `Dockerfile`.
 
 General Docker Build Image Command
@@ -52,14 +52,13 @@ General Docker Build Image Command
 Building our Docker Image:
 `docker build -t node-app-image .`  
 ## Docker Container
-- Containers  are instance of docker images that can be run using `docker run` command .
-- Basic purpose of Docker is to run containers.
+>Containers  are instance of docker images that can be run using `docker run` command Basic purpose of Docker is to run containers.
 ### Running a Container
 - Running containers is managed by `docker run` command. To run a container we use following command.
 - We will be running our `express-app` using docker image which we created earlier `node-app-image`.
 #### Docker run `fas:ProjectDiagram`
-The `docker run` command runs a command in a new container, pulling the image if needed and starting the container.
-You can restart a stopped container with all its previous changes intact using `docker start`. Use `docker ps -a` to view a list of all containers, including those that are stopped.
+>The `docker run` command runs a command in a new container, pulling the image if needed and starting the container.
+  You can restart a stopped container with all its previous changes intact using `docker start`Use `docker ps -a` to view a list of all containers, including those that are stopped.
 
 ##### To run our docker container `node-app-image` we will execute:
 ```sh
@@ -119,8 +118,8 @@ $ docker run -v pathToFolderOnLocal:pathToFolderOnContainer -p 4000:3000 -d node
 docker run -v %cd%:/app -p 4000:3000 -d --name node-app node-app-image 
 ```
 ### Anonymous Mount
-Suppose we delete our `node_module` folder from our local machine, and run our container, Inside the container `node_modules` folder will be created due to `npm install` command.
-But due to `bind mount` as the volumes are synced, it will delte the `node_modules` folder inside the container also.
+>Suppose we delete our `node_module` folder from our local machine, and run our container, Inside the container `node_modules` folder will be created due to `npm install` command.
+>But due to `bind mount` as the volumes are synced, it will delte the `node_modules` folder inside the container also.
 
 To avoid this problem we will use `Anonymous mount`.
 ```sh
@@ -158,3 +157,40 @@ $ docker rm node-app -fv
 ```sh
 $ docker volume prune
 ```
+
+## Docker Compose
+### Overview
+>When using Docker extensively, the management of several different containers quickly becomes cumbersome.
+>Docker Compose is a tool that helps us overcome this problem and **easily handle multiple containers at once.**
+
+### YAML Configuration
+Docker Compose works by applying many rules declared within **a single 
+`docker-compose.yml` configuration file**.
+These [YAML](https://en.wikipedia.org/wiki/YAML) rules, both human-readable and machine-optimized, provide an effective way to snapshot the whole project from ten-thousand feet in a few lines.
+Almost every rule replaces a specific Docker command, so that in the end, we just need to run:
+```sh
+$ docker-compose up -d
+```
+
+Basic `docker-compose.yml` file looks like this:
+```yaml
+version: "3"
+services:
+  node-app:
+    build: .
+    ports:
+      - "4000:3000"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - PORT=3000
+    # env_file:
+    #   - ./.env
+```
+
+Shutdown a container
+```sh
+docker-compose down -v
+```
+> `-v` flag to delete mounted volumes also.
