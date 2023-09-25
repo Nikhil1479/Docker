@@ -189,7 +189,7 @@ services:
     #   - ./.env
 ```
 
-Shutdown a container
+Shutting down a container
 ```sh
 docker-compose down -v
 ```
