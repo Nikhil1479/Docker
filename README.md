@@ -172,7 +172,7 @@ Almost every rule replaces a specific Docker command, so that in the end, we jus
 $ docker-compose up -d
 ```
 
-Basic `docker-compose.yml` file looks like this:
+A Basic `docker-compose.yml` file looks like this:
 ```yaml
 version: "3"
 services:
