@@ -130,7 +130,7 @@ $ docker run -v ${pwd}:/app -v /app/node_modules -p 4000:3000 -d --name node-app
 #### Changing the `Docker` file system to read only
 To change the docker file system to read only we use 
 ```sh
-:ro (to be ussed with volumes -v)
+:ro (to be used with volumes -v)
 ```
 
 ```sh

@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Hands on Project.md",
-                "mode": "preview",
+                "file": "README.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#express-app",
+                "query": "tag:#docker-exec",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,8 +65,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Hands on Project.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Hands on Project.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Hands on Project.md"
+                "file": "README.md"
               }
             }
           },
@@ -157,8 +156,20 @@
   },
   "active": "472024eb929b4f42",
   "lastOpenFiles": [
-    "Notes/Overview.md",
+    "docker-compose.yml",
+    "images/Pasted image 20230919165842.png",
+    "README.md",
+    "images/Pasted image 20230919163413.png",
+    "images/Pasted image 20230919163356.png",
+    "images/Pasted image 20230919163350.png",
+    "images",
+    "image.png",
+    "Pasted image 20230919165842.png",
     "Notes/Hands on Project.md",
+    "Pasted image 20230919163413.png",
+    "Pasted image 20230919163356.png",
+    "Pasted image 20230919163350.png",
+    "Notes/Overview.md",
     "2023-09-18.md",
     "node_modules/express/Readme.md",
     "Hands on Project.pdf",

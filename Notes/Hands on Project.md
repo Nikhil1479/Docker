@@ -47,10 +47,15 @@ To build an image from this `Dockerfile` you need to execute this command `docke
 `docker build` command builds Docker images `fas:CompactDisc` from a `Dockerfile`.
 
 General Docker Build Image Command
-`docker build [OPTIONS] PATH | URL | -`
+```sh
+$ docker build [OPTIONS] PATH | URL | -
+```
+
 
 Building our Docker Image:
-`docker build -t node-app-image` 
+```sh
+$ docker build -t node-app-image
+```
 ## Docker Container `fas:Docker`
 - Containers  are instance of docker images that can be run using `docker run` command .
 - Basic purpose of Docker is to run containers.
@@ -62,13 +67,40 @@ The `docker run` command runs a command in a new container, pulling the image 
 You can restart a stopped container with all its previous changes intact using `docker start`. Use `docker ps -a` to view a list of all containers, including those that are stopped.
 
 ##### To run our docker container `node-app-image` we will execute:
-`docker run -p 4000:3000 -d --name node-app node-app-image`
+```sh
+$ docker run -p 4000:3000 -d --name node-app node-app-image
+```
 ###### Command Breakdown `fas:Terminal`
 - `docker run` Runs the command in container, pulling image if needed.
 - `docker run -p 4000:3000` So, as docker container are completely isolated from other systems, so we can't access our `express-app` from outside container, instead we can specify that the traffic coming to the port `4000` in our local machine should be redirected to port `3000` of the docker container.
 - `docker run -p 4000:3000 -d` this flag `-d` detaches our container from our terminal and runs the container in background, though printing the container id to terminal.
 - `docker run -p 4000:3000 -d --name node-app node-app-image` specifying the container name `node-app` and giving the image `node-app-image` to run a container.
-
+### Running an interactive shell inside container
+- If you need to start an interactive shell inside a Docker Container, perhaps to explore the file system or debug running processes, use `docker exec` command with `-i` and `-t` flags.
+- The `-i` flag keeps input open to the container, and the `-t` flag creates a pseudo-terminal that the shell can attach to. These flags can be combined like this:
+```sh
+$ docker exec -it node-app
+```
+![[Pasted image 20230919163356.png]]
+- In the above screenshot we can see all the files inside our container.
+- We can see that there are some unnecessary files like `Dockerfile`, `node_module` which aren't necessary.
+- These files are creating inside docker container because of `COPY . ./` command in our `Dockerfile`.
+- So, to don't include these files or folders inside our container we will use `.dockerignore`.
+### Docker Ignore
+- Create a file inside your project folder `.dockerignore`.
+- Include all the file and folder names in the file which you don't want to copy inside the container.
+```dockerignore
+node_modules
+.vscode
+Dockerfile
+.gitignore
+files
+.obsidian
+```
+- Re build the docker image
+```sh
+$ docker built -t node-app-image
+```
 
 
 
