@@ -4,3 +4,4 @@ files
 .vscode
 .git
 Dockerfile
+docker-compose*
