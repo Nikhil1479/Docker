@@ -194,3 +194,69 @@ Shutting down a container
 docker-compose down -v
 ```
 > `-v` flag to delete mounted volumes also.
+
+### Docker Compose for different environment
+Suppose you want to execute your project on different environments, like development environment or production environment.
+For this you need to configure multiple `docker-compose` files.
+For our express-app we will be setting up two different environments i.e  `production` and `development`.
+#### Base `docker-compose.yml`
+```yml
+FROM node:15
+WORKDIR /app
+COPY package.json . 
+ARG NODE_ENV
+
+# bash script for checking if environment is production or development.
+RUN if [ "$NODE_ENV" = "development" ]; \
+        then npm install; \
+        else npm install --only=production; \
+        fi
+COPY . ./
+EXPOSE $PORT
+CMD ["npm", "index.js"]
+```
+> --only==production will dont' install the `dev` dependencies mentioned in `package.json` file.
+
+#### Development Environment
+For `dev` environment we need to synchronize the local and container files, for that we will use bind mount and anonymous mount.
+For every time the code get's update we need to automatically restart the `node engine`, for that we will use `nodemon`.
+##### `docker-compose.dev.yml`
+```yml
+version: '3'
+services:
+  node-app:
+    build: # Overriding the base docker-compose.yml
+      context: . # path to dockerfile
+      args:
+       - NODE_ENV=development  #environment variable for specific environment
+    volumes:
+      # Bind mount for dev environment.
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+```
+#### Production Environment
+For `prod` environment we don't need to synchronize the local and container files, so we don't need to mount the volumes. If we don't need to synchronize files between local and container, then we also don't want to install `nodemon`.
+##### docker-compose.prod.yml
+```yml
+version: '3'
+services:
+  node-app:
+    build:
+      context: .
+      args:
+       - NODE_ENV=production
+    environment:
+      - NODE_ENV = production
+    command: node index.js
+```
+##### Docker Compose for development environment
+```sh
+$ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up 
+```
+#### Docker Compose for production environment
+```sh
+$ docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
+```

@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "f04c37e01c72f423",
+        "id": "9c12bbf8766e23b0",
         "type": "tabs",
         "children": [
           {
-            "id": "472024eb929b4f42",
+            "id": "43e57b585f359c59",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -154,16 +154,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "472024eb929b4f42",
+  "active": "43e57b585f359c59",
   "lastOpenFiles": [
+    "image.png",
+    "README.md",
     "docker-compose.yml",
     "images/Pasted image 20230919165842.png",
-    "README.md",
     "images/Pasted image 20230919163413.png",
     "images/Pasted image 20230919163356.png",
     "images/Pasted image 20230919163350.png",
     "images",
-    "image.png",
     "Pasted image 20230919165842.png",
     "Notes/Hands on Project.md",
     "Pasted image 20230919163413.png",
