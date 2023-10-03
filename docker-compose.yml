@@ -1,4 +1,4 @@
-version: "3"
+version: "3.1"
 services:
   node-app:
     build: .
@@ -8,3 +8,9 @@ services:
       - PORT=3000
     # env_file:
     #   - ./.env
+  
+  mongo:
+    image: mongo
+    environment:
+      env_file:
+        -.env
