@@ -56,7 +56,7 @@ Building our Docker Image:
 ### Running a Container
 - Running containers is managed by `docker run` command. To run a container we use following command.
 - We will be running our `express-app` using docker image which we created earlier `node-app-image`.
-#### Docker run `fas:ProjectDiagram`
+#### Docker run
 >The `docker run` command runs a command in a new container, pulling the image if needed and starting the container.
   You can restart a stopped container with all its previous changes intact using `docker start`Use `docker ps -a` to view a list of all containers, including those that are stopped.
 
@@ -64,7 +64,7 @@ Building our Docker Image:
 ```sh
 docker run -p 4000:3000 -d --name node-app node-app-image
 ```
-###### Command Breakdown `fas:Terminal`
+###### Command Breakdown
 - `docker run` Runs the command in container, pulling image if needed.
 - `docker run -p 4000:3000` So, as docker container are completely isolated from other systems, so we can't access our `express-app` from outside container, instead we can specify that the traffic coming to the port `4000` in our local machine should be redirected to port `3000` of the docker container.
 - `docker run -p 4000:3000 -d` this flag `-d` detaches our container from our terminal and runs the container in background, though printing the container id to terminal.
