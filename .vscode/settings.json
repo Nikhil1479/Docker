@@ -2,5 +2,9 @@
     "docwriter.progress.trackClasses": true,
     "docwriter.progress.trackMethods": true,
     "docwriter.progress.trackTypes": true,
-    "docwriter.style": "Auto-detect"
+    "docwriter.style": "Auto-detect",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.formatting.provider": "none"
 }
