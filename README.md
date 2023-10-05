@@ -260,3 +260,43 @@ $ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
 ```sh
 $ docker-compose -f docker-compose.yml -f docker-compose.prod.yml up
 ```
+### Working with Multiple Containers
+We will be setting up a new `mongodb` container. Benefit of `docker-compose` is that we can setup multiple container using a single `yaml` configuration file.
+Setting up `mongo` service in `docker-compose`.
+```yml
+version: "3"
+services:
+  node-app:
+    build: .
+    ports:
+      - "4000:3000"
+    environment:
+      - PORT=3000
+    env_file:
+      - ./.env
+  
+  mongo:
+    image: mongo # Using offical mongo image from dockerhub
+    # environment:
+    env_file:
+      - ./.env
+```
+
+.env file
+```env
+PORT=3000
+MONGO_INITDB_ROOT_USERNAME=nikhil
+MONGO_INITDB_ROOT_PASSWORD=pwd
+```
+> [mongo - Official Image | Docker Hub](https://hub.docker.com/_/mongo)
+
+To run `mongo` container, we will run the following command:
+```sh
+$ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
+```
+>This will create 2 containers, `docker-node-app-1` and `docker-mongo-1`
+
+Executing `mongo shell` inside `docker-mongo-1` container.
+```sh
+$ docker exec -it 
+```
