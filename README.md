@@ -298,5 +298,5 @@ $ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
 
 Executing `mongo shell` inside `docker-mongo-1` container.
 ```sh
-$ docker exec -it 
+$ docker exec -it docker-mongo-1 mongosh -u nikhil -p pwd 
 ```
